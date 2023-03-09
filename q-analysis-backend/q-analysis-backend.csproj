@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>q_analysis_backend</RootNamespace>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <None Remove="Structures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Structures\" />
+  </ItemGroup>
+</Project>
