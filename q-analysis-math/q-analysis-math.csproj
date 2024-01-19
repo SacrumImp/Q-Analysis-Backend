@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>q_analysis_math</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Structures\" />
+    <None Remove="Relations\" />
+    <None Remove="EccentricityCalculator\" />
+    <None Remove="QVectorStructures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Structures\" />
+    <Folder Include="Relations\" />
+    <Folder Include="EccentricityCalculator\" />
+    <Folder Include="QVectorStructures\" />
+  </ItemGroup>
+</Project>

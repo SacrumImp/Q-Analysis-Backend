@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  q-analysis-backend:
+    image: ${DOCKER_REGISTRY-}qanalysisbackend
+    build:
+      context: .
+      dockerfile: q-analysis-backend/Dockerfile
+    ports:
+    - "8080:80"
+    - "8443:443"

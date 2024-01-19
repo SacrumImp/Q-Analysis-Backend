@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using q_analysis_backend.Converters;
+using q_analysis_backend.Providers;
 
 namespace q_analysis_backend
 {
@@ -25,7 +27,12 @@ namespace q_analysis_backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new RelationConverter());
+                });
+            services.AddProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
