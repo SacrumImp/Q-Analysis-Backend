@@ -27,6 +27,8 @@ namespace q_analysis_backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCorsConfiguration();
+
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -44,6 +46,8 @@ namespace q_analysis_backend
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowSpecificOrigins");
 
             app.UseRouting();
 
