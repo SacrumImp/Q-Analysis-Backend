@@ -13,7 +13,7 @@ namespace q_analysis_backend
                 options.AddPolicy("AllowSpecificOrigins", builder =>
                 {
                     builder.WithOrigins("http://localhost:3000",
-                                        "http://77.37.180.248:54321")
+                                        "http://77.37.180.248:54322")
                            .AllowAnyHeader()
                            .AllowAnyMethod();
                 });
