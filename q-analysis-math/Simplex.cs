@@ -17,7 +17,7 @@ namespace q_analysis_math
                 var dimension = -1;
                 foreach (IRelation relation in Relations)
                 {
-                    dimension += relation.GetRelationValue() ? 1 : 0;
+                    dimension += relation.HasRelationValue() ? 1 : 0;
                 }
                 return dimension;
             }

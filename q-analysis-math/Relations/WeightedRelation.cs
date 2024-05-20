@@ -1,5 +1,4 @@
-﻿using System;
-using q_analysis_math.Interfaces;
+﻿using q_analysis_math.Interfaces;
 
 
 namespace q_analysis_math
@@ -16,14 +15,14 @@ namespace q_analysis_math
             SliceValue = sliceValue;
         }
 
-        public bool GetRelationValue()
+        public bool HasRelationValue()
         {
             return Value > SliceValue;
         }
 
         public bool IsConnected(IRelation relation)
         {
-            return GetRelationValue() && relation.GetRelationValue();
+            return HasRelationValue() && relation.HasRelationValue();
         }
     }
 }

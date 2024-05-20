@@ -14,14 +14,14 @@ namespace q_analysis_math
             Value = value;
         }
 
-        public bool GetRelationValue()
+        public bool HasRelationValue()
         {
             return Value;
         }
 
         public bool IsConnected(IRelation relation)
         {
-            return GetRelationValue() && relation.GetRelationValue();
+            return HasRelationValue() && relation.HasRelationValue();
         }
     }
 }
