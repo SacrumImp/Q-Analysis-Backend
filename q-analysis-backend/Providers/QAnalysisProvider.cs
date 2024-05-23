@@ -2,7 +2,6 @@
 using q_analysis_backend.Models.Controllers.Analysis;
 using q_analysis_math;
 using q_analysis_math.EccentricityCalculator;
-using q_analysis_math.Interfaces;
 using q_analysis_math.QVectorStructures;
 using q_analysis_math.Structures;
 

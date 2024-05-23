@@ -1,6 +1,4 @@
-﻿using System;
-using q_analysis_math.Interfaces;
-using q_analysis_math.QVectorStructures;
+﻿using q_analysis_math.QVectorStructures;
 using q_analysis_math.Structures;
 
 namespace q_analysis_math.EccentricityCalculator

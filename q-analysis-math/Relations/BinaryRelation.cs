@@ -1,8 +1,4 @@
-﻿using System;
-using q_analysis_math.Interfaces;
-
-
-namespace q_analysis_math
+﻿namespace q_analysis_math.Relations
 {
     public class BinaryRelation: IRelation
     {
@@ -23,5 +19,11 @@ namespace q_analysis_math
         {
             return HasRelationValue() && relation.HasRelationValue();
         }
+
+        public bool IsValid()
+        {
+            return true;
+        }
+
     }
 }

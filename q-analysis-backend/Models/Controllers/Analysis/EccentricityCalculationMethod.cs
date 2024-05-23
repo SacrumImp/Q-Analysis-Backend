@@ -1,7 +1,4 @@
-﻿
-using System;
-
-namespace q_analysis_backend.Models.Controllers.Analysis
+﻿namespace q_analysis_backend.Models.Controllers.Analysis
 {
 	public enum EccentricityCalculationMethod
 	{

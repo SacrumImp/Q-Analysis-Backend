@@ -10,11 +10,13 @@
     <None Remove="Relations\" />
     <None Remove="EccentricityCalculator\" />
     <None Remove="QVectorStructures\" />
+    <None Remove="Relations\Primitives\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Structures\" />
     <Folder Include="Relations\" />
     <Folder Include="EccentricityCalculator\" />
     <Folder Include="QVectorStructures\" />
+    <Folder Include="Relations\Primitives\" />
   </ItemGroup>
 </Project>

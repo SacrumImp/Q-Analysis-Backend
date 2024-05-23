@@ -1,15 +1,12 @@
-﻿using q_analysis_math.Interfaces;
-
-
-namespace q_analysis_math
+﻿namespace q_analysis_math.Relations
 {
     public class WeightedRelation: IRelation
     {
 
-        public int SliceValue { get; }
-        public int Value { get; }
+        public double SliceValue { get; }
+        public double Value { get; }
 
-        public WeightedRelation(int value, int sliceValue)
+        public WeightedRelation(double value, double sliceValue)
         {
             Value = value;
             SliceValue = sliceValue;
@@ -24,5 +21,11 @@ namespace q_analysis_math
         {
             return HasRelationValue() && relation.HasRelationValue();
         }
+
+        public bool IsValid()
+        {
+            return Value >= 0;
+        }
+
     }
 }

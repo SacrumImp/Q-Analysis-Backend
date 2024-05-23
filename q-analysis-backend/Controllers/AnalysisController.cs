@@ -28,6 +28,13 @@ namespace q_analysis_backend.Controllers
         [HttpPost]
         public ActionResult<CalculationResult> Get([FromBody] SimplicesInput simplicesInput)
         {
+
+            var invalid = simplicesInput.Simplices.Any(simplex => simplex.Relations.Any(relation => !relation.IsValid()));
+            if (invalid)
+            {
+                return BadRequest("Errors were found in the descriptions of the links");
+            }
+
             var simplices = simplicesInput.Simplices.Select(simplexInput => simplexInput.GetSimplex).ToArray();
             var vector = _qAnalysisProvider.GetQVector(simplices);
             var method = EnumExtentions.GetEnumValueOrDefault(simplicesInput.EccentricityCalculationMethod, EccentricityCalculationMethod.Casti);

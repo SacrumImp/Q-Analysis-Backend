@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using q_analysis_math;
-using q_analysis_math.Interfaces;
+using q_analysis_math.Relations;
 
 
 namespace q_analysis_backend.Converters
@@ -25,6 +24,8 @@ namespace q_analysis_backend.Converters
                         return JsonSerializer.Deserialize<BinaryRelation>(root, options);
                     case "Weighted":
                         return JsonSerializer.Deserialize<WeightedRelation>(root, options);
+                    case "FuzzySetsType1":
+                        return JsonSerializer.Deserialize<FuzzySetsType1Relation>(root, options);
                     default:
                         throw new JsonException($"Unknown relation type: {relationType}");
                 }

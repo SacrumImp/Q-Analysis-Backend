@@ -1,6 +1,4 @@
-﻿using System;
-using q_analysis_math.Interfaces;
-
+﻿using q_analysis_math.Relations;
 
 namespace q_analysis_math
 {
