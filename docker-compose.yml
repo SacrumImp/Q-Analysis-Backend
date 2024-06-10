@@ -7,4 +7,4 @@ services:
       context: .
       dockerfile: q-analysis-backend/Dockerfile
     ports:
-    - "8080:80"
+    - "11111:5000"
