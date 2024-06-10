@@ -7,17 +7,17 @@ namespace q_analysis_math.Relations
 	{
 
         public Domain Domain { get; }
-        public Trapezoid? Trapezoid { get; }
+        public Trapezoid? Value { get; }
         public double ClippingPoint { get; }
         public double MatchProportion { get; }
 
         private double SegmentLeftBoundary {
             get
             {
-                if (!Trapezoid.HasValue) return 0;
-                if (Trapezoid.Value.LeftBottomPoint == Trapezoid.Value.LeftTopPoint) return Trapezoid.Value.LeftBottomPoint;
-                return ClippingPoint * Math.Abs(Trapezoid.Value.LeftTopPoint - Trapezoid.Value.LeftBottomPoint)
-                    + Math.Min(Trapezoid.Value.LeftTopPoint, Trapezoid.Value.LeftBottomPoint);
+                if (!Value.HasValue) return 0;
+                if (Value.Value.LeftBottomPoint == Value.Value.LeftTopPoint) return Value.Value.LeftBottomPoint;
+                return ClippingPoint * Math.Abs(Value.Value.LeftTopPoint - Value.Value.LeftBottomPoint)
+                    + Math.Min(Value.Value.LeftTopPoint, Value.Value.LeftBottomPoint);
             }
         }
 
@@ -25,23 +25,23 @@ namespace q_analysis_math.Relations
         {
             get
             {
-                if (!Trapezoid.HasValue) return 0;
-                if (Trapezoid.Value.RightBottomPoint == Trapezoid.Value.RightTopPoint) return Trapezoid.Value.RightBottomPoint;
-                return ClippingPoint * Math.Abs(Trapezoid.Value.RightBottomPoint - Trapezoid.Value.RightTopPoint)
-                    + Math.Min(Trapezoid.Value.RightBottomPoint, Trapezoid.Value.RightTopPoint);
+                if (!Value.HasValue) return 0;
+                if (Value.Value.RightBottomPoint == Value.Value.RightTopPoint) return Value.Value.RightBottomPoint;
+                return ClippingPoint * Math.Abs(Value.Value.RightBottomPoint - Value.Value.RightTopPoint)
+                    + Math.Min(Value.Value.RightBottomPoint, Value.Value.RightTopPoint);
             }
         }
 
         public FuzzySetsType1Relation(Domain domain, Trapezoid trapezoid, double clippingPoints)
 		{
             Domain = domain;
-            Trapezoid = trapezoid;
+            Value = trapezoid;
             ClippingPoint = clippingPoints;
 		}
 
         public bool HasRelationValue()
         {
-            return Trapezoid.HasValue;
+            return Value.HasValue;
         }
 
         public bool IsConnected(IRelation relation)
@@ -64,11 +64,11 @@ namespace q_analysis_math.Relations
             if (!HasRelationValue()) return true;
             return ClippingPoint >= 0 && ClippingPoint <= 1 &&
                 MatchProportion >= 0 && MatchProportion <= 1 &&
-                Domain.LeftBoundary <= Trapezoid.Value.LeftBottomPoint &&
-                Trapezoid.Value.LeftBottomPoint <= Trapezoid.Value.LeftTopPoint &&
-                Trapezoid.Value.LeftTopPoint <= Trapezoid.Value.RightTopPoint &&
-                Trapezoid.Value.RightTopPoint <= Trapezoid.Value.RightBottomPoint &&
-                Trapezoid.Value.RightBottomPoint <= Domain.RightBoundary;
+                Domain.LeftBoundary <= Value.Value.LeftBottomPoint &&
+                Value.Value.LeftBottomPoint <= Value.Value.LeftTopPoint &&
+                Value.Value.LeftTopPoint <= Value.Value.RightTopPoint &&
+                Value.Value.RightTopPoint <= Value.Value.RightBottomPoint &&
+                Value.Value.RightBottomPoint <= Domain.RightBoundary;
         }
 
     }
