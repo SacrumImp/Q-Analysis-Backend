@@ -45,7 +45,8 @@ namespace q_analysis_backend
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // Disable HTTPS redirection
+            //app.UseHttpsRedirection();
 
             app.UseCors("AllowSpecificOrigins");
 

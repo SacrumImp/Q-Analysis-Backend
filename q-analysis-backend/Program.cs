@@ -20,6 +20,10 @@ namespace q_analysis_backend
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.ConfigureKestrel(serverOptions =>
+                    {
+                        serverOptions.ListenAnyIP(5000);
+                    });
                     webBuilder.UseStartup<Startup>();
                 });
     }

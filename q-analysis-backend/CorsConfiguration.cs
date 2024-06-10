@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-using q_analysis_backend.Providers;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace q_analysis_backend
 {
