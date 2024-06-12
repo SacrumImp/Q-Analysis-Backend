@@ -22,7 +22,7 @@ namespace q_analysis_backend
                 {
                     webBuilder.ConfigureKestrel(serverOptions =>
                     {
-                        serverOptions.ListenAnyIP(5001);
+                        serverOptions.ListenAnyIP(5000);
                     });
                     webBuilder.UseStartup<Startup>();
                 });
