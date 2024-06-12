@@ -2,7 +2,6 @@
 using System.Linq;
 using q_analysis_backend.Models.Controllers.Analysis.Primitives;
 using q_analysis_backend.Models.Controllers.Analysis.Relations.Primitives;
-using q_analysis_backend.Models.Controllers.Analysis.Result;
 using q_analysis_math.Relations;
 
 namespace q_analysis_backend.Models.Controllers.Analysis.Relations

@@ -5,10 +5,8 @@ using Microsoft.Extensions.Logging;
 using q_analysis_backend.Extentions;
 using q_analysis_backend.Models.Controllers.Analysis.Input;
 using q_analysis_backend.Models.Controllers.Analysis.Input.Primitives;
-using q_analysis_backend.Models.Controllers.Analysis.Primitives;
 using q_analysis_backend.Models.Controllers.Analysis.Result;
 using q_analysis_backend.Providers;
-using q_analysis_math;
 
 namespace q_analysis_backend.Controllers
 {
@@ -38,23 +36,28 @@ namespace q_analysis_backend.Controllers
                 return BadRequest("Errors were found in the descriptions of the relations");
             }
 
-            var results = new List<AnalysisResult>();
-            var data = simplicesInput.GetStructures();
-            foreach (KeyValuePair<SplitKey, Simplex[]> entry in data)
+            var method = EnumExtentions.GetEnumValueOrDefault(simplicesInput.EccentricityCalculationMethod, EccentricityCalculationMethod.Casti);
+            var data = simplicesInput.GetStructures().Select(entry =>
             {
-                var vector = _qAnalysisProvider.GetQVector(entry.Value);
-                var method = EnumExtentions.GetEnumValueOrDefault(simplicesInput.EccentricityCalculationMethod, EccentricityCalculationMethod.Casti);
-                var eccentricities = _qAnalysisProvider.GetEccentricities(entry.Value, vector, method);
-                results.Add(new AnalysisResult()
+                return _qAnalysisProvider.PerformQCalculations(entry.Key, entry.Value, method);
+            }).ToList();
+            var results = data.Select(result => {
+                return new AnalysisResult()
                 {
-                    Keys = entry.Key.Keys,
+                    Keys = result.Key.Keys,
                     Result = new CalculationResult()
                     {
-                        Dimension = vector.Dimension,
-                        VectorElements = vector.VectorElements,
-                        Eccentricities = eccentricities
+                        Dimension = result.Vector.Dimension,
+                        VectorElements = result.Vector.VectorElements,
+                        Eccentricities = result.Eccentricities,
                     }
-                });
+                };
+            }).ToList();
+
+            if (data.Count > 0)
+            {
+                var aggregatedResult = _qAnalysisProvider.AggregateResults(data);
+                results.Add(aggregatedResult);
             }
 
             return Ok(results);

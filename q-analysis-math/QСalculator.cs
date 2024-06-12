@@ -3,11 +3,8 @@
 
 namespace q_analysis_math
 {
-    public class QCalculator
+    public static class QCalculator
     {
-        public QCalculator()
-        {
-        }
 
         public static QVector PrepareQVector(Simplex[] simplices)
         {

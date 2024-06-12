@@ -20,6 +20,7 @@
     <None Remove="Models\Controllers\Analysis\Relations\Primitives\" />
     <None Remove="Models\Controllers\Analysis\Input\" />
     <None Remove="Models\Controllers\Analysis\Primitives\" />
+    <None Remove="Providers\Primitives\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Providers\" />
@@ -33,6 +34,7 @@
     <Folder Include="Models\Controllers\Analysis\Relations\Primitives\" />
     <Folder Include="Models\Controllers\Analysis\Input\" />
     <Folder Include="Models\Controllers\Analysis\Primitives\" />
+    <Folder Include="Providers\Primitives\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\q-analysis-math\q-analysis-math.csproj">
