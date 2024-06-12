@@ -4,6 +4,12 @@
 	{
         public double LeftBoundary { get; }
         public double RightBoundary { get; }
+
+        public Domain(double leftBoundary, double rightBoundary)
+        {
+            LeftBoundary = leftBoundary;
+            RightBoundary = rightBoundary;
+        }
     }
 }
 

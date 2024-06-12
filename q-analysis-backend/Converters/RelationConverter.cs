@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using q_analysis_backend.Models.Controllers.Analysis.Relations;
 using q_analysis_math.Relations;
 
 
 namespace q_analysis_backend.Converters
 {
-	public class RelationConverter : JsonConverter<IRelation>
+	public class RelationConverter : JsonConverter<IRelationInput>
     {
 		public RelationConverter()
 		{
 		}
 
-        public override IRelation Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override IRelationInput Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             using (var document = JsonDocument.ParseValue(ref reader))
             {
@@ -21,18 +22,18 @@ namespace q_analysis_backend.Converters
                 switch (relationType)
                 {
                     case "Binary":
-                        return JsonSerializer.Deserialize<BinaryRelation>(root, options);
+                        return JsonSerializer.Deserialize<BinaryRelationInput>(root, options);
                     case "Weighted":
-                        return JsonSerializer.Deserialize<WeightedRelation>(root, options);
+                        return JsonSerializer.Deserialize<WeightedRelationInput>(root, options);
                     case "FuzzySetsType1":
-                        return JsonSerializer.Deserialize<FuzzySetsType1Relation>(root, options);
+                        return JsonSerializer.Deserialize<FuzzySetsType1RelationInput>(root, options);
                     default:
                         throw new JsonException($"Unknown relation type: {relationType}");
                 }
             }
         }
 
-        public override void Write(Utf8JsonWriter writer, IRelation value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, IRelationInput value, JsonSerializerOptions options)
         {
             throw new NotImplementedException();
         }

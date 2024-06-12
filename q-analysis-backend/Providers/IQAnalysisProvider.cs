@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using q_analysis_backend.Models.Controllers.Analysis;
+﻿using System.Collections.Generic;
+using q_analysis_backend.Models.Controllers.Analysis.Input.Primitives;
 using q_analysis_math;
 using q_analysis_math.QVectorStructures;
 using q_analysis_math.Structures;

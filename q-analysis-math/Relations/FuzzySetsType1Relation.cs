@@ -32,12 +32,13 @@ namespace q_analysis_math.Relations
             }
         }
 
-        public FuzzySetsType1Relation(Domain domain, Trapezoid trapezoid, double clippingPoints)
+        public FuzzySetsType1Relation(Domain domain, Trapezoid? value, double clippingPoints, double matchProportion)
 		{
             Domain = domain;
-            Value = trapezoid;
+            Value = value;
             ClippingPoint = clippingPoints;
-		}
+            MatchProportion = matchProportion;
+        }
 
         public bool HasRelationValue()
         {
@@ -51,24 +52,12 @@ namespace q_analysis_math.Relations
                 if (!HasRelationValue() || !fuzzyType1relation.HasRelationValue()) return false;
                 var commonPart = Math.Min(SegmentRigthBoundary, fuzzyType1relation.SegmentRigthBoundary) - Math.Max(SegmentLeftBoundary, fuzzyType1relation.SegmentLeftBoundary);
                 var maxSegment = Math.Max(SegmentRigthBoundary - SegmentLeftBoundary, fuzzyType1relation.SegmentRigthBoundary - fuzzyType1relation.SegmentLeftBoundary);
-                return (maxSegment / commonPart) > MatchProportion;
+                return (maxSegment / commonPart) * 100 > MatchProportion;
             }
             else
             {
                 throw new InvalidOperationException("Incompatible relation types.");
             }
-        }
-
-        public bool IsValid()
-        {
-            if (!HasRelationValue()) return true;
-            return ClippingPoint >= 0 && ClippingPoint <= 1 &&
-                MatchProportion >= 0 && MatchProportion <= 1 &&
-                Domain.LeftBoundary <= Value.Value.LeftBottomPoint &&
-                Value.Value.LeftBottomPoint <= Value.Value.LeftTopPoint &&
-                Value.Value.LeftTopPoint <= Value.Value.RightTopPoint &&
-                Value.Value.RightTopPoint <= Value.Value.RightBottomPoint &&
-                Value.Value.RightBottomPoint <= Domain.RightBoundary;
         }
 
     }

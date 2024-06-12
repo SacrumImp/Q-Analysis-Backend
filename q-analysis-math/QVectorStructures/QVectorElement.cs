@@ -46,7 +46,7 @@ namespace q_analysis_math.QVectorStructures
                         for (int j = 0; j < connectedElements[i].Count; j++)
                         {
                             var connections = 0;
-                            for (int r = 0; r < connectedElements[i][j].Relations.Length; r++)
+                            for (int r = 0; r < connectedElements[i][j].Relations.Count; r++)
                             {
                                 connections += simplex.Relations[r].IsConnected(connectedElements[i][j].Relations[r]) ? 1 : 0;
                             }
@@ -90,7 +90,7 @@ namespace q_analysis_math.QVectorStructures
                                 foreach (Simplex simplexY in connectedElements[j])
                                 {
                                     var connections = 0;
-                                    for (int r = 0; r < simplexX.Relations.Length; r++)
+                                    for (int r = 0; r < simplexX.Relations.Count; r++)
                                     {
                                         connections += simplexX.Relations[r].IsConnected(simplexY.Relations[r]) ? 1 : 0;
                                     }

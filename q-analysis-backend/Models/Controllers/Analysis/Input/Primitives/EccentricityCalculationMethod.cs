@@ -1,4 +1,4 @@
-﻿namespace q_analysis_backend.Models.Controllers.Analysis
+﻿namespace q_analysis_backend.Models.Controllers.Analysis.Input.Primitives
 {
 	public enum EccentricityCalculationMethod
 	{

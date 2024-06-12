@@ -9,22 +9,30 @@
 
 
   <ItemGroup>
-    <None Remove="Structures\" />
     <None Remove="Providers\" />
     <None Remove="Models\" />
     <None Remove="Models\Controllers\" />
     <None Remove="Models\Controllers\Analysis\" />
     <None Remove="Converters\" />
     <None Remove="Extentions\" />
+    <None Remove="Models\Controllers\Analysis\Relations\" />
+    <None Remove="Models\Controllers\Analysis\Result\" />
+    <None Remove="Models\Controllers\Analysis\Relations\Primitives\" />
+    <None Remove="Models\Controllers\Analysis\Input\" />
+    <None Remove="Models\Controllers\Analysis\Primitives\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Structures\" />
     <Folder Include="Providers\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Controllers\" />
     <Folder Include="Models\Controllers\Analysis\" />
     <Folder Include="Converters\" />
     <Folder Include="Extentions\" />
+    <Folder Include="Models\Controllers\Analysis\Relations\" />
+    <Folder Include="Models\Controllers\Analysis\Result\" />
+    <Folder Include="Models\Controllers\Analysis\Relations\Primitives\" />
+    <Folder Include="Models\Controllers\Analysis\Input\" />
+    <Folder Include="Models\Controllers\Analysis\Primitives\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\q-analysis-math\q-analysis-math.csproj">

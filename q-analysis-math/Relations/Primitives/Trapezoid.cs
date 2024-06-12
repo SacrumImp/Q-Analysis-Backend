@@ -8,6 +8,14 @@
         public double RightBottomPoint { get; }
         public double RightTopPoint { get; }
 
+        public Trapezoid(double leftBottomPoint, double leftTopPoint, double rightBottomPoint, double rightTopPoint)
+        {
+            LeftBottomPoint = leftBottomPoint;
+            LeftTopPoint = leftTopPoint;
+            RightBottomPoint = rightBottomPoint;
+            RightTopPoint = rightTopPoint;
+        }
+
     }
 }
 

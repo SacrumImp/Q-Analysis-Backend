@@ -20,10 +20,5 @@
             return HasRelationValue() && relation.HasRelationValue();
         }
 
-        public bool IsValid()
-        {
-            return true;
-        }
-
     }
 }

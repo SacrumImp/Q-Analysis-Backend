@@ -1,4 +1,5 @@
-﻿using q_analysis_math.Relations;
+﻿using System.Collections.Generic;
+using q_analysis_math.Relations;
 
 namespace q_analysis_math
 {
@@ -6,7 +7,7 @@ namespace q_analysis_math
     {
         public int Index { get; }
 
-        public IRelation[] Relations { get; }
+        public List<IRelation> Relations { get; }
 
         public int Dimension
         {
@@ -21,10 +22,15 @@ namespace q_analysis_math
             }
         }
 
-        public Simplex(int index, IRelation[] relations)
+        public Simplex(int index, List<IRelation> relations)
         {
             Index = index;
             Relations = relations;
+        }
+
+        public void AddRelation(IRelation relation)
+        {
+            Relations.Add(relation);
         }
     }
 }
