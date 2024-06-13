@@ -54,7 +54,7 @@ namespace q_analysis_backend.Controllers
                 };
             }).ToList();
 
-            if (data.Count > 0)
+            if (data.Count > 1)
             {
                 var aggregatedResult = _qAnalysisProvider.AggregateResults(data);
                 results.Add(aggregatedResult);
