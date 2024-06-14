@@ -15,14 +15,22 @@ namespace q_analysis_math.QVectorStructures
             }
         }
 
-        public string VectorElements
+        public int[] VectorElements
         {
             get
             {
-                var values = Elements
+                return Elements
                     .OrderByDescending(elem => elem.ConnectionLevel)
-                    .Select(elem => elem.Value);
-                return $"({string.Join(",", values)})";
+                    .Select(elem => elem.Value)
+                    .ToArray();
+            }
+        }
+
+        public string VectorElementsString
+        {
+            get
+            {
+                return $"({string.Join(",", VectorElements)})";
             }
         }
 

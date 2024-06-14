@@ -48,7 +48,7 @@ namespace q_analysis_backend.Controllers
                     Result = new CalculationResult()
                     {
                         Dimension = result.Vector.Dimension,
-                        VectorElements = result.Vector.VectorElements,
+                        VectorElements = result.Vector.VectorElementsString,
                         ConnectivityComponents = result.Vector.ConnectivityComponentsIndexes,
                         Eccentricities = result.Eccentricities,
                     }

@@ -33,8 +33,8 @@ namespace q_analysis_backend.Providers
 				IsAggregated = true,
 				Result = new CalculationResult()
 				{
-					Dimension = aggregatedResult.Vector.Dimension,
-					VectorElements = aggregatedResult.Vector.VectorElements,
+					Dimension = aggregatedResult.Dimension,
+					VectorElements = aggregatedResult.Vector,
 					Eccentricities = aggregatedResult.Eccentricities,
 				}
 			};
