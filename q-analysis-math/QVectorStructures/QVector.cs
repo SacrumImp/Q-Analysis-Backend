@@ -26,6 +26,17 @@ namespace q_analysis_math.QVectorStructures
             }
         }
 
+        public int[][][] ConnectivityComponentsIndexes
+        {
+            get
+            {
+                return Elements
+                    .OrderByDescending(elem => elem.ConnectionLevel)
+                    .Select(elem => elem.ConnectivityComponentsIndexes)
+                    .ToArray();
+            }
+        }
+
         public QVector()
         {
 

@@ -22,6 +22,16 @@ namespace q_analysis_math.QVectorStructures
             ConnectionLevel = connectionLevel;
         }
 
+        public int[][] ConnectivityComponentsIndexes
+        {
+            get
+            {
+                return QConnectedElements
+                    .Select(elem => elem.Select(simplex => simplex.Index).ToArray())
+                    .ToArray();
+            }
+        }
+
         public List<List<Simplex>> QConnectedElements
         {
             get

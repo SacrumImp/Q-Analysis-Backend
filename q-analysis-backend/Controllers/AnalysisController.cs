@@ -49,6 +49,7 @@ namespace q_analysis_backend.Controllers
                     {
                         Dimension = result.Vector.Dimension,
                         VectorElements = result.Vector.VectorElements,
+                        ConnectivityComponents = result.Vector.ConnectivityComponentsIndexes,
                         Eccentricities = result.Eccentricities,
                     }
                 };

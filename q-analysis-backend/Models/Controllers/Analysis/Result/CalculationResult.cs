@@ -7,7 +7,8 @@ namespace q_analysis_backend.Models.Controllers.Analysis.Result
 	{
         public int Dimension { get; set; }
 		public string VectorElements { get; set; }
-		public IReadOnlyList<Eccentricity> Eccentricities { get; set; }
+        public int[][][] ConnectivityComponents { get; set; }
+        public IReadOnlyList<Eccentricity> Eccentricities { get; set; }
 
         public CalculationResult() { }
 	}
