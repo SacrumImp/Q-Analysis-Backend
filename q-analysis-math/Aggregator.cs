@@ -24,7 +24,7 @@ namespace q_analysis_math
 
 		private static string AggregateQVector(int dimension, List<QVector> vectors)
 		{
-			var vectorElements = new double[dimension];
+			var vectorElements = new double[dimension+1];
             for (int i = 0; i <= dimension; i++)
 			{
 				vectorElements[i] = vectors.Average(vector => vector.VectorElements[i]);
