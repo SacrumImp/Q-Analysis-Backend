@@ -7,7 +7,7 @@ namespace q_analysis_math.Relations
 	{
 
         public Domain Domain { get; }
-        public Trapezoid? Value { get; }
+        public Trapezoid<double>? Value { get; }
         public double ClippingPoint { get; }
         public double MatchProportion { get; }
 
@@ -21,7 +21,7 @@ namespace q_analysis_math.Relations
             }
         }
 
-        private double SegmentRigthBoundary
+        private double SegmentRightBoundary
         {
             get
             {
@@ -32,7 +32,7 @@ namespace q_analysis_math.Relations
             }
         }
 
-        public FuzzySetsType1Relation(Domain domain, Trapezoid? value, double clippingPoints, double matchProportion)
+        public FuzzySetsType1Relation(Domain domain, Trapezoid<double>? value, double clippingPoints, double matchProportion)
 		{
             Domain = domain;
             Value = value;
@@ -50,8 +50,8 @@ namespace q_analysis_math.Relations
             if (relation is FuzzySetsType1Relation fuzzyType1relation)
             {
                 if (!HasRelationValue() || !fuzzyType1relation.HasRelationValue()) return false;
-                var commonPart = Math.Min(SegmentRigthBoundary, fuzzyType1relation.SegmentRigthBoundary) - Math.Max(SegmentLeftBoundary, fuzzyType1relation.SegmentLeftBoundary);
-                var maxSegment = Math.Max(SegmentRigthBoundary - SegmentLeftBoundary, fuzzyType1relation.SegmentRigthBoundary - fuzzyType1relation.SegmentLeftBoundary);
+                var commonPart = Math.Min(SegmentRightBoundary, fuzzyType1relation.SegmentRightBoundary) - Math.Max(SegmentLeftBoundary, fuzzyType1relation.SegmentLeftBoundary);
+                var maxSegment = Math.Max(SegmentRightBoundary - SegmentLeftBoundary, fuzzyType1relation.SegmentRightBoundary - fuzzyType1relation.SegmentLeftBoundary);
                 return (maxSegment / commonPart) * 100 > MatchProportion;
             }
             else

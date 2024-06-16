@@ -1,14 +1,14 @@
 ﻿namespace q_analysis_math.Relations.Primitives
 {
-	public readonly struct Trapezoid
+	public readonly struct Trapezoid<T>
 	{
 
-        public double LeftBottomPoint { get; }
-        public double LeftTopPoint { get; }
-        public double RightBottomPoint { get; }
-        public double RightTopPoint { get; }
+        public T LeftBottomPoint { get; }
+        public T LeftTopPoint { get; }
+        public T RightBottomPoint { get; }
+        public T RightTopPoint { get; }
 
-        public Trapezoid(double leftBottomPoint, double leftTopPoint, double rightBottomPoint, double rightTopPoint)
+        public Trapezoid(T leftBottomPoint, T leftTopPoint, T rightBottomPoint, T rightTopPoint)
         {
             LeftBottomPoint = leftBottomPoint;
             LeftTopPoint = leftTopPoint;

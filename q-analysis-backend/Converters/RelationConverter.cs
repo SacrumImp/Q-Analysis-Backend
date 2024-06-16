@@ -27,6 +27,8 @@ namespace q_analysis_backend.Converters
                         return JsonSerializer.Deserialize<WeightedRelationInput>(root, options);
                     case "FuzzySetsType1":
                         return JsonSerializer.Deserialize<FuzzySetsType1RelationInput>(root, options);
+                    case "FuzzySetsType2":
+                        return JsonSerializer.Deserialize<FuzzySetsType2RelationInput>(root, options);
                     default:
                         throw new JsonException($"Unknown relation type: {relationType}");
                 }

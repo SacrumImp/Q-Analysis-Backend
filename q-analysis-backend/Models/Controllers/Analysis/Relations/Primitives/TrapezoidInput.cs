@@ -2,14 +2,14 @@
 
 namespace q_analysis_backend.Models.Controllers.Analysis.Relations.Primitives
 {
-	public class TrapezoidInput
+	public class TrapezoidInput<T>
 	{
-        public double LeftBottomPoint { get; }
-        public double LeftTopPoint { get; }
-        public double RightBottomPoint { get; }
-        public double RightTopPoint { get; }
+        public T LeftBottomPoint { get; }
+        public T LeftTopPoint { get; }
+        public T RightBottomPoint { get; }
+        public T RightTopPoint { get; }
 
-        public TrapezoidInput(double leftBottomPoint, double leftTopPoint, double rightBottomPoint, double rightTopPoint)
+        public TrapezoidInput(T leftBottomPoint, T leftTopPoint, T rightBottomPoint, T rightTopPoint)
         {
             LeftBottomPoint = leftBottomPoint;
             LeftTopPoint = leftTopPoint;
@@ -17,9 +17,9 @@ namespace q_analysis_backend.Models.Controllers.Analysis.Relations.Primitives
             RightTopPoint = rightTopPoint;
         }
 
-        public Trapezoid GetStruct()
+        public Trapezoid<T> GetStruct()
         {
-            return new Trapezoid(LeftBottomPoint, LeftTopPoint, RightBottomPoint, RightTopPoint);
+            return new Trapezoid<T>(LeftBottomPoint, LeftTopPoint, RightBottomPoint, RightTopPoint);
         }
     }
 }
